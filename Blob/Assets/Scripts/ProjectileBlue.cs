@@ -7,6 +7,7 @@ public class ProjectileBlue : MonoBehaviour
 
 
     public GameObject destroyEffect;
+    public float damage= 34;
 
     private void Start()
     {

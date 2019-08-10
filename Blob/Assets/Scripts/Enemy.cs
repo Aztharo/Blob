@@ -13,6 +13,7 @@ public class Enemy : MonoBehaviour
     public GameObject middle;
     public GameObject destroyEffect;
     public CameraShake CameraShake;
+    public float hp = 100f;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -25,12 +26,23 @@ public class Enemy : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+
         if (GameObject.Find("Player").GetComponent<PlayerMovement>().ftlleft && collision.collider.name == "Player" || GameObject.Find("Player").GetComponent<PlayerMovement>().ftlright && collision.collider.name == "Player")
         {
             Instantiate(destroyEffect, transform.position, Quaternion.identity);
             CameraShake.Shake(1f);
             Destroy(gameObject);
+        } else if(collision.collider.name == "ProjectileBlue(Clone)")
+        {
+            hp -= GameObject.Find("ProjectileBlue(Clone)").GetComponent<ProjectileBlue>().damage;
+}           if(hp <= 0)
+        {
+            Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            CameraShake.Shake(1f);
+            Destroy(gameObject);
         }
+
+        
     }
 
     void Update()
