@@ -10,15 +10,17 @@ public class Weapon : MonoBehaviour
     public GameObject bulletstart;
     public Animator animator;
     public bool flip = false;
+    public SpriteRenderer sr;
+    public Sprite arShooting, arIdle;
 
     public float bulletSpeed = 20f;
 
     private Vector3 target;
 
-    // Use this for initialization
+    // Use this for initialization 
     void Start()
     {
-
+        sr = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -32,7 +34,13 @@ public class Weapon : MonoBehaviour
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
         weapon.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
 
-
+        if (Input.GetMouseButton(0))
+        {
+            sr.sprite = arShooting;
+        } else
+        {
+            sr.sprite = arIdle;
+        }
         if (Input.GetMouseButtonDown(0))
         {
             float distance = difference.magnitude;

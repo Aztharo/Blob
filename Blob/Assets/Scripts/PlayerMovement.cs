@@ -20,22 +20,25 @@ public class PlayerMovement : MonoBehaviour
     }
 
 
-    public void OnCollisionEnter2D()
+    public void OnCollisionEnter2D(Collision2D collider)
     {
-        jumpReady = true;
+        if (collider.collider.tag == "JumpReset" || collider.collider.tag == "Enemy")
+        {
+            jumpReady = true;
+        }
 
     }
 
     void FixedUpdate()
     {
-        if(rb.velocity.x > 7)
+        if(rb.velocity.x > 12)
         {
             ftlright = true;
         } else
         {
             ftlright = false;
         }
-        if (rb.velocity.x < -7)
+        if (rb.velocity.x < -10)
         {
             ftlleft = true;
         }
@@ -45,7 +48,7 @@ public class PlayerMovement : MonoBehaviour
         }
         float xInput = Input.GetAxis("Horizontal");
 
-        if (Input.GetKeyDown("w") && jumpReady)
+        if (Input.GetKeyDown("w") && jumpReady || Input.GetKeyDown("space") && jumpReady)
         {
             rb.AddForce(new Vector2(0, jumpheight));
             jumpReady = false;
