@@ -11,6 +11,8 @@ public class PlayerMovement : MonoBehaviour
     float yForce;
     float xForce;
     float xTorque;
+    public bool ftlleft = false;
+    public bool ftlright = false;
 
     void Start()
     {
@@ -26,7 +28,21 @@ public class PlayerMovement : MonoBehaviour
 
     void FixedUpdate()
     {
-
+        if(rb.velocity.x > 7)
+        {
+            ftlright = true;
+        } else
+        {
+            ftlright = false;
+        }
+        if (rb.velocity.x < -7)
+        {
+            ftlleft = true;
+        }
+        else
+        {
+            ftlleft = false;
+        }
         float xInput = Input.GetAxis("Horizontal");
 
         if (Input.GetKeyDown("w") && jumpReady)

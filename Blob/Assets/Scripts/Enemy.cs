@@ -11,6 +11,8 @@ public class Enemy : MonoBehaviour
     public GameObject projectile;
     public GameObject shootpoint;
     public GameObject middle;
+    public GameObject destroyEffect;
+    public CameraShake CameraShake;
 
     private float timeBtwShots;
     public float startTimeBtwShots;
@@ -21,7 +23,16 @@ public class Enemy : MonoBehaviour
         timeBtwShots = startTimeBtwShots;
     }
 
-    // Update is called once per frame
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (GameObject.Find("Player").GetComponent<PlayerMovement>().ftlleft && collision.collider.name == "Player" || GameObject.Find("Player").GetComponent<PlayerMovement>().ftlright && collision.collider.name == "Player")
+        {
+            Instantiate(destroyEffect, transform.position, Quaternion.identity);
+            CameraShake.Shake(1f);
+            Destroy(gameObject);
+        }
+    }
+
     void Update()
     {
         Vector3 difference = player.transform.position - shootpoint.transform.position;

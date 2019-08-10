@@ -62,11 +62,14 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\CameraShake.cs" />
     <Compile Include="Assets\Scripts\CameraFollow.cs" />
     <Compile Include="Assets\Scripts\Enemy.cs" />
+    <Compile Include="Assets\Scripts\Flipping.cs" />
     <Compile Include="Assets\Scripts\PlayerMovement.cs" />
     <Compile Include="Assets\Scripts\ProjectileBlue.cs" />
     <Compile Include="Assets\Scripts\ProjectileRed.cs" />
+    <Compile Include="Assets\Scripts\SpeedParticles.cs" />
     <Compile Include="Assets\Scripts\Weapon.cs" />
     <Reference Include="Unity.Timeline.Editor">
       <HintPath>C:/Blob/Library/ScriptAssemblies/Unity.Timeline.Editor.dll</HintPath>

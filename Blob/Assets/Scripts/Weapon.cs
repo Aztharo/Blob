@@ -4,11 +4,14 @@ using UnityEngine;
 
 public class Weapon : MonoBehaviour
 {
+    public GameObject weapon;
     public GameObject player;
     public GameObject bulletPrefab;
     public GameObject bulletstart;
+    public Animator animator;
+    public bool flip = false;
 
-    public float bulletSpeed = 10f;
+    public float bulletSpeed = 20f;
 
     private Vector3 target;
 
@@ -21,11 +24,14 @@ public class Weapon : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        transform.position = player.transform.position + new Vector3(0,0,-1);
+
         target = Camera.main.ScreenToWorldPoint(new Vector3(Input.mousePosition.x, Input.mousePosition.y, transform.position.z));
 
-        Vector3 difference = target - player.transform.position;
+        Vector3 difference = target - weapon.transform.position;
         float rotationZ = Mathf.Atan2(difference.y, difference.x) * Mathf.Rad2Deg;
-        player.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+        weapon.transform.rotation = Quaternion.Euler(0.0f, 0.0f, rotationZ);
+
 
         if (Input.GetMouseButtonDown(0))
         {
@@ -34,6 +40,7 @@ public class Weapon : MonoBehaviour
             direction.Normalize();
             fireBullet(direction, rotationZ);
         }
+
     }
     void fireBullet(Vector2 direction, float rotationZ)
     {
@@ -43,4 +50,3 @@ public class Weapon : MonoBehaviour
         b.GetComponent<Rigidbody2D>().velocity = direction * bulletSpeed;
     }
 }
-

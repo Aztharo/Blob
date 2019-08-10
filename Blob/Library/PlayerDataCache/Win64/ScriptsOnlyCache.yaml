@@ -2,10 +2,13 @@ ScriptsOnlyBuild:
   usedScripts:
     Assembly-CSharp.dll:
     - CameraFollow
+    - CameraShake
     - Enemy
+    - Flipping
     - PlayerMovement
     - ProjectileBlue
     - ProjectileRed
+    - SpeedParticles
     - Weapon
     Unity.2D.Tilemap.Editor.dll:
     - UnityEditor.Tilemaps.GridPaintingState
@@ -13,6 +16,12 @@ ScriptsOnlyBuild:
     - UnityEditor.Tilemaps.GridPalettes
     - UnityEditor.Tilemaps.SceneViewGridManager
     - UnityEditor.Tilemaps.TileDragAndDropManager
+    UnityEditor.Graphs.dll:
+    - UnityEditor.Graphs.AnimationBlendTree.Graph
+    - UnityEditor.Graphs.AnimationBlendTree.GraphGUI
+    - UnityEditor.Graphs.AnimationStateMachine.Graph
+    - UnityEditor.Graphs.AnimationStateMachine.GraphGUI
+    - UnityEditor.Graphs.AnimatorControllerTool
     UnityEditor.TestRunner.dll:
     - UnityEditor.TestTools.TestRunner.Api.CallbacksHolder
     - UnityEditor.TestTools.TestRunner.TestListCacheData
@@ -53,11 +62,17 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 10398}
     - Class: 114
-      Script: {instanceID: 11010}
+      Script: {instanceID: 10586}
     - Class: 114
-      Script: {instanceID: 11202}
+      Script: {instanceID: 10648}
     - Class: 114
-      Script: {instanceID: 22128}
+      Script: {instanceID: 11012}
+    - Class: 114
+      Script: {instanceID: 11204}
+    - Class: 114
+      Script: {instanceID: 14602}
+    - Class: 114
+      Script: {instanceID: 30042}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 157
@@ -265,7 +280,7 @@ ScriptsOnlyBuild:
     className: Selectable
   - hash:
       serializedVersion: 2
-      Hash: c25112184c19802c886252dc0044d195
+      Hash: f9379db814f9a34e4b1825cc152fe7bf
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Weapon
@@ -307,6 +322,12 @@ ScriptsOnlyBuild:
     className: RemoteTestResultSender
   - hash:
       serializedVersion: 2
+      Hash: b8063620a7b99da9cbc2c2fc1b5fe28e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: ProjectileRed
+  - hash:
+      serializedVersion: 2
       Hash: 4fd8bf02e3089425d3502e26c44ba31a
     assemblyName: Unity.TextMeshPro.dll
     namespaceName: TMPro
@@ -323,6 +344,12 @@ ScriptsOnlyBuild:
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
     className: RawImage
+  - hash:
+      serializedVersion: 2
+      Hash: 34fdfcd09a6eef07114392575f5387a4
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: Flipping
   - hash:
       serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
@@ -379,7 +406,7 @@ ScriptsOnlyBuild:
     className: TimelineAsset
   - hash:
       serializedVersion: 2
-      Hash: 7679fc3d710c23dc548628610889c23e
+      Hash: 3d6d33ab2ec8d454fce1f6b2b66748f4
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: Enemy
@@ -409,7 +436,7 @@ ScriptsOnlyBuild:
     className: BeforeAfterTestCommandState
   - hash:
       serializedVersion: 2
-      Hash: bf6a6a0d9a0219905ea785d79fa9e9f5
+      Hash: 6db1de47951529d785e8f37be163af07
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: PlayerMovement
@@ -517,10 +544,16 @@ ScriptsOnlyBuild:
     className: PlayableTrack
   - hash:
       serializedVersion: 2
-      Hash: b8063620a7b99da9cbc2c2fc1b5fe28e
+      Hash: 654c79df4541c660ff6072eeb9c3a0f6
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
-    className: ProjectileRed
+    className: SpeedParticles
+  - hash:
+      serializedVersion: 2
+      Hash: 40f7936dda7dfeefcfa4aeaa852b267e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: CameraShake
   platform: 19
   scenePathNames:
   - Assets/World/Lvl.unity
